@@ -26,7 +26,7 @@
         var points = $.ajax({
             url: 'https://contact-app.mybluemix.net/api/get/locations',
             dataType: "json",
-            success: console.log("Data successfully loaded!"),
+            success: console.log("Data loaded without problems!"),
             error: function (xhr) {
                 alert(xhr.statusText)
             }
@@ -45,11 +45,7 @@
                 }).addTo(mymap);
             var mapPoints = L.geoJSON(points.responseJSON).addTo(mymap);
 
-            console.log(points.responseJSON.features[0].geometry.coordinates)
-            // var marker = L.marker([points.responseJSON.features]).addTo(mymap);
-
             points.responseJSON.features.forEach(element => {
-                console.log(element.properties);
 
                 var marker = L.marker([element.geometry.coordinates[1], element.geometry.coordinates[0]])
                     .bindPopup('<strong>' + element.properties.title + '<br>' + element.properties.description)
