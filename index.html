@@ -25,7 +25,7 @@
     <script>
         function main() {
             var points = $.ajax({
-                url: 'https://contact-app.mybluemix.net/api/get/locations',
+                url: 'https://contact-app.mybluemix.net/api/get/geojson',
                 dataType: "json",
                 success: console.log("Data loaded without problems!"),
                 error: function (xhr) {
